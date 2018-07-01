@@ -7,15 +7,16 @@ import {observer,inject} from 'mobx-react'
        
     }
     change=(e)=>{
-        console.log(e.target.value)
         this.props.userStore.setName(e.target.value)
     }
+    login=()=>{
+        this.props.history.push('account')
+    }
     render(){
-        console.log(this.props.userStore)
         return (
             <div style={{width:'300px',margin:'0px auto'}}>
                 <Input value={this.props.userStore.name} onChange={this.change} />
-                <Button>登录</Button>
+                <Button onClick={this.login}>登录</Button>
             </div>
         )
     }
